@@ -1,1 +1,1 @@
-readme.md for githook to jenkins server
+readme.md for githook to jenkins server ubuntu
