@@ -1,0 +1,42 @@
+pipeline {
+    agent { 
+        docker { image 'python:3.7' } 
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Start stage'
+                echo 'Average stage'
+                echo 'End stage'
+            }
+        }
+    
+    
+        stage('Test') {
+            steps {
+                echo 'Start stage'
+                echo 'Average stage'
+                sh "ls -la"
+                echo 'End stage'
+            }
+        }
+    
+    
+    
+        stage('Deploy') {
+            steps {
+                echo 'Start stage'
+                echo 'Average stage'
+                sh '''
+                    echo "Line 1"
+                    echo "Line 2"
+                    echo "Line 3"
+                '''
+                sh "python --version"
+                echo 'End stage'
+            }
+        }
+    }    
+    
+}
