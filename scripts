@@ -1,0 +1,15 @@
+#Jenkins reset build ALL Success Failure
+#ALL
+job = Jenkins.instance.getItemByFullName("Build_Deploy_Test_GitHub_Ubuntu1")
+job.builds.each() { build ->
+  build.delete()
+}
+#Start with number 1
+job.updateNextBuildNumber(1)
+#Status
+job = Jenkins.instance.getItemByFullName("Build_Deploy_Test_GitHub_Ubuntu1")
+job.getBuilds().each {
+  if(it.result == Result.FAILURE){
+    it.delete()
+  }
+}
